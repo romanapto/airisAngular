@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>SISTEMA Airis</span>
+</mat-toolbar>
+
+<div class="main-container">
+  <button mat-raised-button (click)="mostrarBoton=false">Compras</button>
+  <button mat-raised-button (click)="mostrarBoton=true" color="primary">Ventas</button>
+  <app-mapa *ngIf="!mostrarBoton"></app-mapa>
+  <app-ventas *ngIf="mostrarBoton"></app-ventas>
+</div>

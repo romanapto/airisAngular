@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>Compras</mat-card-title>
+  <mat-card-content>
+    <google-map
+    height="500px"
+    width="60%"
+    [zoom]="zoom"
+    [center]="center"
+    [options]="options"
+    (mapClick)="click($event)"
+    
+    >
+    <map-marker #marker 
+    *ngFor="let marcador of marcadores ; let i = index"
+    [position]="marcador.marker.position"
+    [options]="marcador.marker"
+    #ElementMarker="mapMarker" 
+    [position]="marcador.marker.latlng"
+    (mapClick)="openInfoWindow(ElementMarker, i)"
+    >
+        <map-info-window>
+            <strong>{{marcador.titulo}}</strong>
+            <p>
+                {{marcador.desc}}
+            </p>
+            <div>
+                <button (click)="editarMarcador( marcador )" mat-raised-button color="primary"> Editar</button>
+                <button  (click)="borrarMarcador()" mat-raised-button color="warn">Borrar</button>
+            </div>
+        </map-info-window>
+    </map-marker>
+</google-map>
+   
+  <!-- Use custom zoom buttons -->
+  <button (click)="zoomIn()">Zoom in</button>
+  <button (click)="zoomOut()">Zoom out</button>
+  </mat-card-content>
+ 
+</mat-card>

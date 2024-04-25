@@ -1,0 +1,19 @@
+
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">MES</th>
+        <th scope="col">CANTIDAD DE INMUEBLES</th>
+        <th scope="col">TOTAL DE VENTAS</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let venta of ventas; let i = index">
+      <tr>
+        <td>{{venta.mes}}</td>
+        <td>{{venta.cantInmuebles}}</td>
+        <td>{{venta.totalVentas}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
